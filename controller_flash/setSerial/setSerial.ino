@@ -5,17 +5,21 @@
 // first 6 bytes of the EEPROM
 
 #include <EEPROM.h>
-char sID[7] = "000001";
-
 
 void setup()
 {
   Serial.begin(9600);
+  
   for (int i=0; i<6; i++) {
-    EEPROM.write(i,sID[i]);
+    EEPROM.write(i,random(0,9));
+    EEPROM.write(i,random(0,9));
+    EEPROM.write(i,random(0,9));
+    EEPROM.write(i,random(0,9));
+    EEPROM.write(i,random(0,9));
+    EEPROM.write(i,random(0,9));
   }
 }
 
 void loop() {
-  Serial.println(sID);
+  
 }
