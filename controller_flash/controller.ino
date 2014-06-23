@@ -47,7 +47,7 @@ void loop()
     ORP_final = dtostrf(orp, 2, 3, "ssssssss");
     Serial.println("casted values are pH_final = "+pH_final+" and ORP_final = "+ORP_final);
     // Make a HTTP request:
-    client.println("GET /poolcontrollerlog/chems/"+ORP_final+"/"+pH_final+"/"+sID+" HTTP/1.1");
+    client.println("GET /api/chems/"+ORP_final+"/"+pH_final+"/"+sID+" HTTP/1.1");
     client.println("Host: piemontese.robmengel.com");
     client.println("Connection: close");
     client.println();
