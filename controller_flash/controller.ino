@@ -5,7 +5,7 @@
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 char server[] = "piemontese.robmengel.com";
-IPAddress ip(169,254,0,1);
+IPAddress ip(169,254,0,1);	//use this self-signed IP if things go wrong with DHCP
 EthernetClient client;
 char sID[7];
 
@@ -47,7 +47,7 @@ void loop()
     ORP_final = dtostrf(orp, 2, 3, "ssssssss");
     Serial.println("casted values are pH_final = "+pH_final+" and ORP_final = "+ORP_final);
     // Make a HTTP request:
-    client.println("GET /WebServicePoolLog.asmx/setChems?orp="+ORP_final+"&ph="+pH_final+"&serial="+sID+" HTTP/1.1");
+    client.println("GET /poolcontrollerlog/chems/"+ORP_final+"/"+pH_final+"/"+sID+" HTTP/1.1");
     client.println("Host: piemontese.robmengel.com");
     client.println("Connection: close");
     client.println();
@@ -55,7 +55,7 @@ void loop()
   } 
   else
   {
-    // kf you didn't get a connection to the server:
+    // if you didn't get a connection to the server:
     Serial.println("connection failed");
   }
   delay(4000);
