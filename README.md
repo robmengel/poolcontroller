@@ -17,3 +17,7 @@ iOS expertise to the project (for mobile control apps) it would be much apprecia
 Feature requests are always welcome and encouraged.
 This code requires an Arduino UNO (or compatible board) with the standard Arduino Ethernet Shield (or compatible knockoff)
 as well as Phidgets ORP/pH sensors.
+
+==License==
+
+This system is based on the [MIT License](http://opensource.org/licenses/MIT)
