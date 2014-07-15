@@ -39,6 +39,15 @@ void loop()
   double pH = (0.0178 * analogRead(A0)) - 1.889;
   double orp = ((2.5 - (analogRead(A1) / 200)) / 1.037) * 1000;
   Serial.println();
+  Serial.println("Pre adjusted values:");
+  Serial.println("pH:");
+  Serial.print(pH);
+  Serial.println("ORP:");
+  Serial.print(orp);
+  //correct values:
+  pH = pH - 1.0;
+  orp = orp + 200.0;
+  Serial.println();
   if (client.connect(server, 80))
   {
     Serial.println("connected");
